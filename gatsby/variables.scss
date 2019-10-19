@@ -1,9 +1,0 @@
-// Header Animation.
-$header-animation-length: 1s;
-$header-animation-delay: 1s;
-
-// NavBar Animation.
-$navbar-delay-start: $header-animation-delay + $header-animation-length + 0.1s;
-
-// General Animation.
-$the-magic-curve: cubic-bezier(0.98, 0, 0.5, 1);
