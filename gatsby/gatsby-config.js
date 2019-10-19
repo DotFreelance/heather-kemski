@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/heather-kemski/gatsby/public",
   siteMetadata: {
     title: `Heather Kemski`,
     subtitle: `Composer & Sound Designer`,
