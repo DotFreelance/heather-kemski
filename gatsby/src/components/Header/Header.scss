@@ -2,11 +2,16 @@
 
 // Header Layout Vars.
 $header-height: 25vh;
+$header-height-mobile: 15vh;
 $header-h1-size: 2.5rem;
 $header-h2-size: 1.5rem;
 
 .HeaderContainer {
   height: $header-height;
+
+  @media screen and (max-width: 800px) {
+    height: $header-height-mobile;
+  }
 }
 
 .Header {
@@ -17,8 +22,8 @@ $header-h2-size: 1.5rem;
   position: absolute;
   left: 0;
   top: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background: #000;
   overflow: hidden;
   z-index: 1;
@@ -30,10 +35,24 @@ $header-h2-size: 1.5rem;
 
     filter: brightness(0.45);
   }
+
+  .overlay {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, #00000077);
+  }
 }
 
 .Header.no-intro {
   height: $header-height;
+
+  @media screen and (max-width: 800px) {
+    height: $header-height-mobile;
+  }
 }
 
 .Header.play-intro {
@@ -49,6 +68,11 @@ $header-h2-size: 1.5rem;
   transition: left $header-animation-length $the-magic-curve
       $header-animation-delay,
     transform $header-animation-length $the-magic-curve $header-animation-delay;
+
+  @media screen and (max-width: 800px) {
+    top: 10%;
+    transform: translate(-50%, 0%);
+  }
 }
 
 .Header .HeaderContent .HeaderTitle {
@@ -57,10 +81,18 @@ $header-h2-size: 1.5rem;
 
   h1 {
     font-size: 3.5rem;
+
+    @media screen and (max-width: 800px) {
+      font-size: 2.5rem;
+    }
   }
   h2 {
     font-size: 2.5rem;
     color: #a8a283;
+
+    @media screen and (max-width: 800px) {
+      font-size: 1.5rem;
+    }
   }
 
   h1,
@@ -69,6 +101,11 @@ $header-h2-size: 1.5rem;
     white-space: pre;
     transition: all $header-animation-length $the-magic-curve
       $header-animation-delay;
+
+    @media screen and (max-width: 800px) {
+      margin-bottom: 0.5rem;
+      white-space: inherit;
+    }
   }
 }
 
@@ -77,6 +114,10 @@ $header-h2-size: 1.5rem;
   .HeaderContent {
     left: 5%;
     transform: translate(0%, -50%);
+
+    @media screen and (max-width: 800px) {
+      transform: translate(0%, 0%);
+    }
 
     .HeaderTitle {
       h1 {
@@ -87,6 +128,11 @@ $header-h2-size: 1.5rem;
       }
     }
   }
+}
+
+.Header .NavContainer {
+  position: absolute;
+  bottom: 0;
 }
 
 .Header .IntroFooter {
@@ -124,9 +170,12 @@ $header-h2-size: 1.5rem;
 
 @keyframes headerRevealAnimation {
   from {
-    height: 100vh;
+    height: 100%;
   }
   to {
     height: $header-height;
+    @media screen and (max-width: 800px) {
+      height: $header-height-mobile;
+    }
   }
 }

@@ -9,11 +9,11 @@ import "./NavBar.scss"
 // Constants.
 const NAV_ITEMS = [
   { title: "Home", path: "/" },
-  { title: "Samples", path: "/" },
-  { title: "Walk-Throughs", path: "/" },
-  { title: "In The Works", path: "/" },
-  { title: "CV", path: "/" },
-  { title: "Contact", path: "/" },
+  { title: "Samples", path: "/samples" },
+  { title: "Walk-Throughs", path: "/walk-throughs" },
+  { title: "In The Works", path: "/in-the-works" },
+  { title: "CV", path: "/cv" },
+  { title: "Contact", path: "/contact" },
 ]
 
 const NavBar = ({ enterSite }) => {

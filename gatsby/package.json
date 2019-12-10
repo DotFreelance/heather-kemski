@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "aos": "^2.3.4",
     "classnames": "^2.2.6",
     "gatsby": "^2.15.29",
     "gatsby-background-image": "^0.8.15",
@@ -24,6 +25,7 @@
     "react-transition-group": "^4.3.0"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -32,6 +34,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "github": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",

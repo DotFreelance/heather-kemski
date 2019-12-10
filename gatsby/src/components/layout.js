@@ -1,15 +1,16 @@
 // Modules.
-import React, { useState } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import classnames from "classnames"
+import AOS from "aos"
 
 // Components.
 import Header from "./Header"
-import NavBar from "./NavBar"
 
 // Styles.
 import "./layout.scss"
+import "aos/dist/aos.css"
 
 const Layout = ({ children, playIntro }) => {
   const data = useStaticQuery(graphql`
@@ -25,6 +26,14 @@ const Layout = ({ children, playIntro }) => {
 
   const [enterSite, setEnterSite] = useState(false)
 
+  useLayoutEffect(() => {
+    if (playIntro && enterSite) {
+      AOS.init({ delay: 3000, duration: 1000, once: true })
+    } else if (!playIntro) {
+      AOS.init({ delay: 2500, duration: 1000, once: true })
+    }
+  }, [enterSite, playIntro])
+
   return (
     <section
       className={classnames("SiteContainer", {
@@ -37,10 +46,9 @@ const Layout = ({ children, playIntro }) => {
         playIntro={playIntro}
         onEnterSite={() => setEnterSite(true)}
       />
-      <NavBar enterSite={enterSite} />
       <div className={classnames("Layout")}>
-        <main>{children}</main>
-        <footer>
+        <main data-aos="fade-in">{children}</main>
+        <footer data-aos="fade-in">
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
